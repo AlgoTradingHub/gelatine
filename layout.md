@@ -35,7 +35,7 @@ need to enable pointer following [without shapes?]
 | Int32            | 1      | 0/k | 2^32  | 0    | 11111111 1111 0000 00000000 00000010 pppppppp|pppppppp|pppppppp|pppppppp |            |                                             |
 | UInt32           | 1      | 0/k | 2^32  | 0    | 11111111 1111 0000 00000000 00000011 pppppppp|pppppppp|pppppppp|pppppppp |            |                                             |
 | Inline32         | 2^16-4 | 0/k | 2^32  | 0    | 11111111 1111 0000 ssssssss ssssssss pppppppp pppppppp pppppppp pppppppp |            | 0000 = inf 0001 = int32 (nonzero shape)     |
-| InlineASCIIZ6    | 1      | i   |       | 0    | 11111111 1111 0001 Mccccccc Uccccccc cccccccc cccccccc cccccccc cccccccc |            | zero-prefixed, M=continue, U=utf8-overlapped5  |
+| InlineASCIIZ6    | 1      | i   |       | 0    | 11111111 1111 0001 Mccccccc Uccccccc cccccccc cccccccc cccccccc cccccccc |            | 0-prefixed, M=continue, U=utf8-overlapped5  |
 | Int48            | 1      | 0   | 2^48  | 0    | 11111111 1111 0010 dddddddd dddddddd dddddddd|dddddddd|dddddddd|dddddddd |            | Signed int.                                 |
 | UInt48           | -      |     |       |      | 11111111 1111 0011 dddddddd dddddddd pppppppp|pppppppp|pppppppp|pppppppp |            | Uint; decrementing 0 makes a signed int     |
 | Inline64         | 2^16   |     | 2^64  | 2^32 | 11111111 1111 0100 ssssssss ssssssss pppppppp|pppppppp|pppppppp|pppppppp | 1xdata     | 64+64 bit tagged value, p0 = continue       |
