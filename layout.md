@@ -31,8 +31,10 @@ need to enable pointer following [without shapes?]
 | DoubleInfinity   | 1      | 0   | 2     | 0    | s1111111 1111 0000 00000000 00000000 00000000 00000000 00000000 00000000 |            | all 52 bit zero                             |
 | Block Meta       | 2^31-1 | 0/k | 1     | 0    | 11111111 1111 0000 00000000 00000000 0ppppppp pppppppp pppppppp pppppppp |            | reserved for impl-specific tags             |
 | Singleton/Symbol | 2^31   | 0/k | 1     | 0    | 11111111 1111 0000 00000000 00000000 1ppppppp pppppppp pppppppp pppppppp |            | at least 1 bit nonzero; fit inline16?       |
-| Inline32         | 2^16-2 | 0/k | 2^32  | 0    | 11111111 1111 0000 ssssssss ssssssss pppppppp pppppppp pppppppp pppppppp |            | 0000 = inf 0001 = int32 (nonzero shape)     |
-| Int32            | 1      | 0/k | 2^32  | 0    | 11111111 1111 0000 00000000 00000001 pppppppp|pppppppp|pppppppp|pppppppp |            |                                             |
+| Reserved32       | 1      | 0/k | 2^32  | 0    | 11111111 1111 0000 00000000 00000001 pppppppp|pppppppp|pppppppp|pppppppp |            |                                             |
+| Int32            | 1      | 0/k | 2^32  | 0    | 11111111 1111 0000 00000000 00000010 pppppppp|pppppppp|pppppppp|pppppppp |            |                                             |
+| UInt32           | 1      | 0/k | 2^32  | 0    | 11111111 1111 0000 00000000 00000011 pppppppp|pppppppp|pppppppp|pppppppp |            |                                             |
+| Inline32         | 2^16-4 | 0/k | 2^32  | 0    | 11111111 1111 0000 ssssssss ssssssss pppppppp pppppppp pppppppp pppppppp |            | 0000 = inf 0001 = int32 (nonzero shape)     |
 | InlineASCIIZ6    | 1      | i   |       | 0    | 11111111 1111 0001 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc |            | implicit length                             |
 | Int48            | 1      | 0   | 2^48  | 0    | 11111111 1111 0010 dddddddd dddddddd dddddddd|dddddddd|dddddddd|dddddddd |            | Signed int.                                 |
 | UInt48           | -      |     |       |      | 11111111 1111 0011 dddddddd dddddddd pppppppp|pppppppp|pppppppp|pppppppp |            | Uint; decrementing 0 makes a signed int     |
