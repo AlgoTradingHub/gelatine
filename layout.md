@@ -35,7 +35,7 @@ need to enable pointer following [without shapes?]
 | Int32            | 1      | 0/k | 2^32  | 0    | 11111111 1111 0000 00000000 00000010 pppppppp|pppppppp|pppppppp|pppppppp |            |                                             |
 | UInt32           | 1      | 0/k | 2^32  | 0    | 11111111 1111 0000 00000000 00000011 pppppppp|pppppppp|pppppppp|pppppppp |            |                                             |
 | Inline32         | 2^16-4 | 0/k | 2^32  | 0    | 11111111 1111 0000 ssssssss ssssssss pppppppp pppppppp pppppppp pppppppp |            | 0000 = inf 0001 = int32 (nonzero shape)     |
-| InlineASCIIZ6    | 1      | i   |       | 0    | 11111111 1111 0001 cccccccc cccccccc cccccccc cccccccc cccccccc cccccccc |            | implicit length                             |
+| InlineASCIIZ6    | 1      | i   |       | 0    | 11111111 1111 0001 Mccccccc Uccccccc cccccccc cccccccc cccccccc cccccccc |            | zero-prefixed, M=continue, U=utf8-overlapped5  |
 | Int48            | 1      | 0   | 2^48  | 0    | 11111111 1111 0010 dddddddd dddddddd dddddddd|dddddddd|dddddddd|dddddddd |            | Signed int.                                 |
 | UInt48           | -      |     |       |      | 11111111 1111 0011 dddddddd dddddddd pppppppp|pppppppp|pppppppp|pppppppp |            | Uint; decrementing 0 makes a signed int     |
 | Inline64         | 2^16   |     | 2^64  | 2^32 | 11111111 1111 0100 ssssssss ssssssss pppppppp|pppppppp|pppppppp|pppppppp | 1xdata     | 64+64 bit tagged value, p0 = continue       |
@@ -43,6 +43,6 @@ need to enable pointer following [without shapes?]
 | Inline448        | 2^16   |     | 2^448 | 2^32 | 11111111 1111 0110 ssssssss ssssssss pppppppp|pppppppp|pppppppp|pppppppp | 7xdata/ref | 448 bit tagged value, struct                |
 | BlockChain       | 2^16   |     | long  | 2^32 | 11111111 1111 0111 ssssssss ssssssss pppppppp|pppppppp|pppppppp|pppppppp |            | block linked list tagged value, string      |
 | DoubleNaN        | 1      |     | 1     | 2^32 | 11111111 1111 1000 00000000 00000000 00000000|00000000|00000000|00000000 |            | ForeignRef with Type=0 is NaN               |
-| ForeignRef24     | 2^24-1 |     | fixed | 2^40 | 11111111 1111 10gg hhhhhhhh hhhhhhhh hhhhhhhh|pppppppp|pppppppp|pppppppp |            | 1 table per type, 2 GC bits, nonzero typeid |
-| ForeignRef40     | 256    |     | fixed | 2^24 | 11111111 1111 11gg hhhhhhhh pppppppp pppppppp|pppppppp|pppppppp|pppppppp |            | maybe another split makes sense             |
+| ForeignRef24     | 2^24-1 |     | fixed | 2^24 | 11111111 1111 10gg hhhhhhhh hhhhhhhh hhhhhhhh|pppppppp|pppppppp|pppppppp |            | 1 table per type, 2 GC bits, nonzero typeid |
+| ForeignRef40     | 256    |     | fixed | 2^40 | 11111111 1111 11gg hhhhhhhh pppppppp pppppppp|pppppppp|pppppppp|pppppppp |            | maybe another split makes sense             |
 ```
