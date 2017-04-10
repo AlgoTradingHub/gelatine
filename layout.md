@@ -37,7 +37,7 @@ mark bitmap is 1 bit per block, hence 1 long per page, or per 512 longs.
 | Reserved32       | 1      | 0/k | 2^32  | 0    | 11111111 1111 0000 00000000 00000001 pppppppp|pppppppp|pppppppp|pppppppp |            |                                             |
 | Int32            | 1      | 0/k | 2^32  | 0    | 11111111 1111 0000 00000000 00000010 pppppppp|pppppppp|pppppppp|pppppppp |            |                                             |
 | UInt32           | 1      | 0/k | 2^32  | 0    | 11111111 1111 0000 00000000 00000011 pppppppp|pppppppp|pppppppp|pppppppp |            |                                             |
-| Inline32         | 2^16-4 | 0/k | 2^32  | 0    | 11111111 1111 0000 ssssssss ssssssss pppppppp pppppppp pppppppp pppppppp |            | 0000 = inf 0001 = int32 (nonzero shape)     |
+| Inline32         | 2^16-4 | 0/k | 2^32  | 0    | 11111111 1111 0000 ssssssss ssssssss pppppppp pppppppp pppppppp pppppppp |            | s >= 00000000 00000100                      |
 | InlineASCIIZ6    | 1      | i   |       | 0    | 11111111 1111 0001 Mccccccc Uccccccc cccccccc cccccccc cccccccc cccccccc |            | 0-prefixed, M=continue, U=utf8-overlapped5  |
 | Int48            | 1      | 0   | 2^48  | 0    | 11111111 1111 0010 dddddddd dddddddd dddddddd|dddddddd|dddddddd|dddddddd |            | Signed int.                                 |
 | UInt48           | -      |     |       |      | 11111111 1111 0011 dddddddd dddddddd pppppppp|pppppppp|pppppppp|pppppppp |            | Uint; decrementing 0 makes a signed int     |
