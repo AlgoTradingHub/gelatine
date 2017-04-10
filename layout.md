@@ -22,6 +22,8 @@ Typed Pointer to Pooled Object Table / 256 tables of 1G objects…
 2^40=1E12
 What we store inline? Type, Typeparam; GC info for refs; pointer/data info for non-inline pointers
 need to enable pointer following [without shapes?]
+
+mark bitmap is 1 bit per block, hence 1 long per 512 longs.
 ```
 
 ```
