@@ -49,3 +49,9 @@ mark bitmap is 1 bit per block, hence 1 long per page, or per 512 longs.
 | ForeignRef24     | 2^24-1 |     | fixed | 2^24 | 11111111 1111 10gg hhhhhhhh hhhhhhhh hhhhhhhh|pppppppp|pppppppp|pppppppp |            | 1 table per type, 2 GC bits, nonzero typeid |
 | ForeignRef40     | 256    |     | fixed | 2^40 | 11111111 1111 11gg hhhhhhhh pppppppp pppppppp|pppppppp|pppppppp|pppppppp |            | maybe another split makes sense             |
 ```
+
+```
+| Shape bits        | data    |
+|-------------------|---------|
+| 00000000 00000100 | float32 |
+```
